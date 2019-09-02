@@ -1,0 +1,7 @@
+# Fichiers générés par la compilation (make)
+serveur
+serveur.o
+
+# Fichiers temporaires d'éditeur
+*.swp
+*~
