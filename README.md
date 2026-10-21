@@ -37,26 +37,25 @@ compilée et exécutée sans aucune bibliothèque externe :
 
 ## 📸 Captures et explications
 
-### Console : compiler, lancer, tester
+### Console : compiler et lancer
 
-![Compilation, lancement et test du serveur dans un terminal](docs/console.png)
+![Compilation avec make puis lancement du serveur dans un terminal](docs/console.png)
 
 - **`make`** affiche les deux commandes réellement exécutées : `as` transforme
   `serveur.asm` en `serveur.o`, puis `ld` produit l'exécutable `serveur`.
 - **`./serveur`** ne produit aucune sortie : c'est normal. Le programme se
-  bloque volontairement dans `accept()` en attendant un visiteur.
-- **`curl -i http://127.0.0.1:8789/`** montre la réponse brute : ligne de statut
-  `HTTP/1.1 200 OK`, en-têtes (`Content-Type`, `Content-Length: 62`,
-  `Connection: close`), puis le corps HTML.
+  bloque volontairement dans `accept()` en attendant un visiteur, et l'invite
+  de commande ne revient donc pas tant que le serveur tourne.
 - Une fois la réponse envoyée, le serveur ferme la connexion et retourne
   immédiatement dans la boucle pour le client suivant.
 
 ### Navigateur : la page servie
 
-![Page Hello world! affichée dans Chromium à l'adresse 127.0.0.1:8789](docs/navigateur.png)
+![Page Hello world! affichée dans Firefox à l'adresse 127.0.0.1:8789](docs/navigateur.png)
 
-- La page est affichée à l'adresse **<http://127.0.0.1:8789/>** : c'est bien le
-  binaire assembleur qui a répondu, sans serveur web intermédiaire.
+- La page est affichée dans Firefox à l'adresse **<http://127.0.0.1:8789/>** :
+  c'est bien le binaire assembleur qui a répondu, sans serveur web
+  intermédiaire.
 - Le HTML renvoyé est volontairement minimal :
   `<!DOCTYPE html><html><body><h1>Hello world!</h1></body></html>`.
 - Toutes les URL répondent la même page (`/`, `/foo`, `/index.html`, etc.) :
