@@ -39,7 +39,9 @@ compilée et exécutée sans aucune bibliothèque externe :
 
 ### Console : compiler et lancer
 
-![Compilation avec make puis lancement du serveur dans un terminal](docs/console.png)
+<div align="center">
+  <img src="docs/console.png" alt="Compilation avec make puis lancement du serveur dans un terminal">
+</div>
 
 - **`make`** affiche les deux commandes réellement exécutées : `as` transforme
   `serveur.asm` en `serveur.o`, puis `ld` produit l'exécutable `serveur`.
